@@ -1,0 +1,9 @@
+<h1>Add a movie to <%= @list.name %></h1>
+<%= simple_form_for [@list, @bookmark] do |f| %>
+  <%= f.input :movie_id, collection: @movies, label: "Select a movie", prompt: "Choose a movie" %>
+  <%= f.input :comment %>
+  <%= f.hidden_field :list_id, value: @list.id %>
+  <%= f.submit "Add to list" %>
+<% end %>
+<%= link_to "Back to movie", list_path(@list) %>
+<%# you can use association instead of collection %>

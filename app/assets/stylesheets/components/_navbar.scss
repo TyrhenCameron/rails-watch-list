@@ -1,0 +1,90 @@
+/* Navbar container */
+.navbar {
+  background-color: #1e1e2f;
+  color: #fff;
+  padding: 0.5rem 1rem;
+  font-family: sans-serif;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+/* Flex layout */
+.navbar-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* Brand */
+.navbar-brand a {
+  color: #fff;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 1.5rem;
+}
+
+/* Toggle button */
+.navbar-toggle {
+  display: none;
+  background: none;
+  border: none;
+  font-size: 1.8rem;
+  color: #fff;
+  cursor: pointer;
+}
+
+/* Menu (accordion content) */
+.navbar-menu {
+  display: flex;
+  gap: 1rem;
+}
+
+.navbar-menu ul {
+  list-style: none;
+  display: flex;
+  gap: 1rem;
+  margin: 0;
+  padding: 0;
+}
+
+.navbar-menu li a {
+  color: #fff;
+  text-decoration: none;
+  padding: 0.5rem;
+  transition: background 0.3s, color 0.3s;
+}
+
+.navbar-menu li a:hover {
+  background-color: #444;
+  border-radius: 5px;
+}
+
+/* Mobile responsiveness */
+@media (max-width: 768px) {
+  .navbar-toggle {
+    display: block;
+  }
+
+  .navbar-menu {
+    display: block;
+    max-height: 0;
+    overflow: hidden;
+    flex-direction: column;
+    gap: 0;
+    transition: max-height 0.4s ease, opacity 0.4s ease;
+  }
+
+  .navbar-menu.expanded {
+    max-height: 500px; /* adjust depending on menu */
+  }
+
+  .navbar-menu ul {
+    flex-direction: column;
+  }
+
+  .navbar-menu li a {
+    padding: 0.8rem 1rem;
+  }
+}
