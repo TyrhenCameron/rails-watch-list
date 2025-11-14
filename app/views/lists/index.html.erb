@@ -1,26 +1,29 @@
 <%# NAVBAR %>
 <%# BANNER %>
-<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://images.pexels.com/photos/33129/popcorn-movie-party-entertainment.jpg);">
+<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://images.pexels.com/photos/1040160/pexels-photo-1040160.jpeg);">
   <div class="container">
     <h1>Plan your next chill sesh</h1>
     <p>Save and share your favorite movies</p>
-    <a class="btn btn-warning" href="#">Start Here</a>
+    <a href="#"><%= link_to "Start Here", new_list_path, class: "btn btn-warning text-dark" %></a>
+  </div>
+</div>
+<%# Heading %>
+<div class="container">
+  <div class="no-lists-warning">
+    <% if @lists.none? %>
+      <p><%= "No lists yet!" %></p>
+    <% end %>
   </div>
 </div>
 <%# CARDS %>
-<h2 class="text-center">Pick a Movie List</h2>
-<div class="cards">
-  <% @lists.each do |list| %>
-    <%= link_to list_path(list), class: "text-dark text-decoration-none" do %>
-      <div class="card">
-        <% if list.photo.attached? %>
-          <%= cl_image_tag list.photo.key, alt: list.name %>
-        <% end %>
-        <div class="card-body">
-          <h5 class="card-title"><%= list.name %></h5>
+<div class="container">
+  <div class="cards">
+    <% @lists.each do |list| %>
+      <%= link_to list_path(list), class: "text-dark text-decoration-none" do %>
+        <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url( <%= list.photo.attached? ? cl_image_path(list.photo.key) : 'https://ducunl0s4svtl.cloudfront.net/wp-content/uploads/2017/10/flat-clapperboard-icon_1063-38.jpg' %>)">
+          <%= list.name %>
         </div>
-      </div>
+      <% end %>
     <% end %>
-  <% end %>
+  </div>
 </div>
-<%= link_to "Add a new movie list", new_list_path %>

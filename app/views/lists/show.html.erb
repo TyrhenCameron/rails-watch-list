@@ -1,4 +1,8 @@
-<h2><%= @list.name%></h2>
+<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(<%= @list.photo.attached? ? cl_image_path(@list.photo.key) : 'https://ducunl0s4svtl.cloudfront.net/wp-content/uploads/2017/10/flat-clapperboard-icon_1063-38.jpg' %>)">
+  <div class="container">
+    <h2 class="banner-text"><%= @list.name%></h2>
+  </div>
+</div>
 <% @bookmarks.each do |bookmark| %>
   <p><%= bookmark.movie.title %>: <%= bookmark.comment %></p>
   <div>
@@ -12,7 +16,7 @@
 <%= link_to "Go back",  lists_path, class: "btn btn-primary" %>
 <%= link_to "Add a movie to this list (bookmark)", new_list_bookmark_path(@list), class: "btn btn-secondary" %>
 <div>
-  <%= button_to list_path(@list), method: :delete, data: {turbo_confirm: "Do you want to delete #{@list.name}?" } do %>
+  <%= link_to list_path(@list.id), data: { turbo_method: :delete, turbo_confirm: "Do you want to delete #{@list.name}?" } do %>
     <p>Delete this list</p>
   <% end %>
 </div>

@@ -1,7 +1,7 @@
-<h1>Lists#new</h1>
-<p>Find me in app/views/lists/new.html.erb</p>
+<h1>Add a New List</h1>
+<p>Your binge starts here</p>
 <%= simple_form_for @list do |f| %>
   <%= f.input :name%>
   <%= f.input :photo, as: :file %>
-  <%= f.submit %>
+  <%= f.submit%>
 <% end %>

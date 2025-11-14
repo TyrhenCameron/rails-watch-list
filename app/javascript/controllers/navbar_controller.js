@@ -1,37 +1,37 @@
-import { Controller } from "@hotwired/stimulus"
-import { gsap } from "gsap"
+// .avatar {
+//   width: 40px;
+//   border-radius: 50%;
+// }
 
-export default class extends Controller {
-  connect() {
-    console.log("Navbar controller connected")
+// .avatar-large {
+//   width: 56px;
+//   border-radius: 50%;
+// }
 
-    gsap.from(this.element, {
-      y: -80,
-      opacity: 0,
-      duration: 1,
-      ease: "power4.out"
-    })
-  }
+// .avatar-bordered {
+//   width: 40px;
+//   border-radius: 50%;
+//   box-shadow: 0 1px 2px rgba(0,0,0,0.2);
+//   border: white 1px solid;
+// }
 
-  toggle(event) {
-    const content = this.element.querySelector(".accordion-content")
+// .avatar-square {
+//   width: 40px;
+//   border-radius: 0px;
+//   box-shadow: 0 1px 2px rgba(0,0,0,0.2);
+//   border: white 1px solid;
+// }
 
-    if (content.classList.contains("expanded")) {
-      content.classList.remove("expanded")
-      gsap.to(content, {
-        maxHeight: 0,
-        opacity: 0,
-        duration: 0.3,
-        ease: "power2.in"
-      })
-    } else {
-      content.classList.add("expanded")
-      gsap.to(content, {
-        maxHeight: 200,
-        opacity: 1,
-        duration: 0.4,
-        ease: "power2.out"
-      })
-    }
-  }
-}
+
+// .navbar-lewagon {
+//   justify-content: space-between;
+//   background: white;
+// }
+
+// .navbar-lewagon .navbar-collapse {
+//   flex-grow: 0;
+// }
+
+// .navbar-lewagon .navbar-brand img {
+//   width: 40px;
+// }
